@@ -1,13 +1,19 @@
 const path = require('path');
 
 const { app, BrowserWindow } = require('electron');
-const isDev = require('electron-is-dev');
+const isDev = false
+
+if (require("electron-squirrel-startup")) {
+  app.quit();
+} // NEW!
 
 function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
+    show: false,
     width: 800,
-    height: 600,
+    height: 425,
+    resizable: false,
     webPreferences: {
       nodeIntegration: true,
     },
@@ -15,16 +21,23 @@ function createWindow() {
 
   // and load the index.html of the app.
   // win.loadFile("index.html");
+  // win.loadURL(url.format())
   win.loadURL(
     isDev
       ? 'http://localhost:3000'
-      : `file://${path.join(__dirname, '../build/index.html')}`
+      : `file://${path.resolve(__dirname, '../build/index.html')}`
   );
+  // win.loadFile(path.join(__dirname, './index.html'))
+  // win.loadURL('https://github.com')
   // Open the DevTools.
   if (isDev) {
     win.webContents.openDevTools({ mode: 'detach' });
   }
+  win.once('ready-to-show', () => {
+    win.show()
+  })
 }
+
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
