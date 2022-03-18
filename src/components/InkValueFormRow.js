@@ -43,7 +43,7 @@ export default function InkValueFormRow({ title }) {
           w={width}
           onChange={(value) => {setTarget(Number(value))}}
         >
-          <NumberInputField placeholder="target" _placeholder={labelStyle}/>
+          <NumberInputField placeholder="0.00" _placeholder={labelStyle}/>
         </NumberInput>
       <NumberInput
         precision={2}
@@ -52,7 +52,7 @@ export default function InkValueFormRow({ title }) {
         w={width}
         onChange={(value) => {setCurrent(Number(value))}}
         >
-          <NumberInputField placeholder="current" _placeholder={labelStyle}/>
+          <NumberInputField placeholder="0.00" _placeholder={labelStyle}/>
       </NumberInput>
       <NumberInput
         precision={2}
@@ -61,22 +61,8 @@ export default function InkValueFormRow({ title }) {
         w={width}
         onChange={(value) => {setOutput(Number(value))}}
         >
-          <NumberInputField placeholder="output" _placeholder={labelStyle}/>
+          <NumberInputField placeholder="0.00" _placeholder={labelStyle}/>
       </NumberInput>
-      {/* <NumberInput
-        precision={2}
-        isReadOnly={true}
-        isDisabled={true}
-        size='md'
-        w={width}
-        value={final}
-        variant='filled'
-        onClick={() => {
-          navigator.clipboard.writeText(final)
-        }}
-        >
-          <NumberInputField placeholder={final} _placeholder={labelStyle} value={final} />
-      </NumberInput> */}
       <Button
         w={width}
         onClick={copyToClipBoard}

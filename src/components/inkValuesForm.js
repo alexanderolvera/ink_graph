@@ -1,5 +1,5 @@
 import React from "react";
-import { Heading, SimpleGrid, Stack } from "@chakra-ui/react";
+import { Heading, Stack } from "@chakra-ui/react";
 import InkValueFormRow from "./InkValueFormRow";
 import GridTitles from "./gridTitles";
 
