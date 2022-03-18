@@ -1,7 +1,9 @@
 const path = require('path');
 
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Menu } = require('electron');
 const isDev = false
+
+Menu.setApplicationMenu(null)
 
 function createWindow() {
   // Create the browser window.
@@ -12,9 +14,10 @@ function createWindow() {
     resizable: false,
     webPreferences: {
       nodeIntegration: true,
-    },
-    autoHideMenuBar: true,
+    }
   });
+
+
 
   // and load the index.html of the app.
   // win.loadFile("index.html");
