@@ -5,7 +5,7 @@ const isDev = false
 
 if (require("electron-squirrel-startup")) {
   app.quit();
-} // NEW!
+}
 
 function createWindow() {
   // Create the browser window.
