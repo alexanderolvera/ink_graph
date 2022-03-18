@@ -3,10 +3,6 @@ const path = require('path');
 const { app, BrowserWindow } = require('electron');
 const isDev = false
 
-if (require("electron-squirrel-startup")) {
-  app.quit();
-}
-
 function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
@@ -17,6 +13,7 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
     },
+    autoHideMenuBar: true,
   });
 
   // and load the index.html of the app.
